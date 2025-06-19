@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+</head>
+<body class="signup-page">
+
+  <form method="POST" class="container" action="/register">
+  <a href="/" style="display: flex; justify-content: center; align-items: center; margin-bottom: 24px;"><img style="width: 100px" src="static/images/banner-img.png"></a>
+    
+    <h2 class="login-title">Create Account</h2>
+
+    <section class="input-box">
+      <input type="text" name="username" placeholder="Username" required>
+      <i class="bx bxs-user"></i>
+    </section>
+
+    <section class="input-box">
+      <input type="email" name="email" placeholder="Email" required>
+      <i class="bx bxs-envelope"></i>
+    </section>
+
+    <section class="input-box">
+      <input type="password" name="password" placeholder="Password" required>
+      <i class="bx bxs-lock-alt"></i>
+    </section>
+
+    <section class="input-box">
+      <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+      <i class="bx bxs-lock-alt"></i>
+    </section>
+
+    <button class="login-button" type="submit">Sign Up</button>
+
+    <h5 class="dont-have-an-account">
+      Already have an account? <a href="/login">Login</a>
+    </h5>
+  </form>
+
+</body>
+</html>
