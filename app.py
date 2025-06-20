@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 import sqlite3
 from werkzeug.security import generate_password_hash, check_password_hash
+import os
 
 app = Flask(__name__)
 app.secret_key = 'supersecretkey'
@@ -16,16 +17,18 @@ def init_db():
         conn.execute("""
             CREATE TABLE IF NOT EXISTS contacts (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
-                name TEXT NOT NULL,
-                email TEXT NOT NULL,
-                message TEXT NOT NULL
+                Name TEXT NOT NULL,
+                Email TEXT NOT NULL,
+                Phone TEXT NOT NULL,
+                Message TEXT NOT NULL
             )
         """)
         conn.execute("""
             CREATE TABLE IF NOT EXISTS admins (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 username TEXT UNIQUE NOT NULL,
-                password TEXT NOT NULL
+                password TEXT NOT NULL,
+                email TEXT NOT NULL
             )
         """)
         conn.commit()
@@ -53,11 +56,12 @@ def coffees():
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
     if request.method == 'POST':
-        name = request.form['name']
-        email = request.form['email']
-        message = request.form['message']
+        name = request.form['Name']
+        email = request.form['Email']
+        phone = request.form['Phone']
+        message = request.form['Message']
         with connect_db() as conn:
-            conn.execute('INSERT INTO contacts (name, email, message) VALUES (?, ?, ?)', (name, email, message))
+            conn.execute('INSERT INTO contacts (Name, Email, Phone, Message) VALUES (?, ?, ?, ?)', (name, email, phone, message))
         flash('Message submitted successfully!')
         return redirect(url_for('contact'))
     return render_template('contact.html')
@@ -92,14 +96,15 @@ def admin_logout():
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
-    error = None
+    error = ''
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
+        email = request.form['email']
         hashed = generate_password_hash(password)
         try:
             with connect_db() as conn:
-                conn.execute('INSERT INTO admins (username, password) VALUES (?, ?)', (username, hashed))
+                conn.execute('INSERT INTO admins (username, password, email) VALUES (?, ?, ?)', (username, hashed, email))
                 conn.commit()
                 flash("Admin created successfully! You can now log in.")
                 return redirect(url_for('admin_login'))
@@ -108,10 +113,7 @@ def register():
     return render_template('register.html', error=error)
 
 
-
-    
-    import os
-
 if __name__ == '__main__':
+    init_db()
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)

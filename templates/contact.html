@@ -17,11 +17,13 @@
                <div class="row">
                   <div class="col-md-12">
                      <div class="mail_section_1">
-                        <input type="text" class="mail_text" placeholder="Your Name" name="Your Name">
-                        <input type="text" class="mail_text" placeholder="Your Email" name="Your Email">
-                        <input type="text" class="mail_text" placeholder="Your Phone" name="Your Phone">
-                        <textarea class="massage-bt" placeholder="Massage" rows="5" id="comment" name="Massage"></textarea>
-                        <div class="send_bt"><a href="#">Send</a></div>
+                        <form id="cont_form" action="/contact" method="POST">
+                        <input type="text" class="mail_text" placeholder="Your Name" name="Name">
+                        <input type="Email" class="mail_text" placeholder="Your Email" name="Email">
+                        <input type="text" class="mail_text" placeholder="Your Phone" name="Phone">
+                        <textarea class="massage-bt" placeholder="Massage" rows="5" id="comment" name="Message"></textarea>
+                        <div class="send_bt"><a href="#" onclick="document.getElementById('cont_form').submit();">Send</a></div>
+                    </form>
                      </div>
                   </div>
                   

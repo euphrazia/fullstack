@@ -1,6 +1,6 @@
-# ☕ Coffee Shop Web App
+# ☕ Coffo Coffee Shop Web App
 
-Coffee Shop is a responsive and modern coffee shop website built with a custom HTML/CSS/JavaScript frontend, styled using Bootstrap, and powered by a Flask + SQLite backend. It includes an admin panel, contact form handling, and is ready for deployment.
+Coffo is a responsive and modern coffee shop website built with a custom HTML/CSS/JavaScript frontend, styled using Bootstrap, and powered by a Flask + SQLite backend. It includes an admin panel, contact form handling, and is ready for deployment.
 
 ---
 

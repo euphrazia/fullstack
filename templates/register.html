@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
   <title>Sign Up</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
   <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
@@ -31,9 +37,11 @@
     <section class="input-box">
       <input type="password" name="confirm_password" placeholder="Confirm Password" required>
       <i class="bx bxs-lock-alt"></i>
-    </section>
+    </section><br>
+<p style="color: red"> {{error}}</p>
 
     <button class="login-button" type="submit">Sign Up</button>
+    
 
     <h5 class="dont-have-an-account">
       Already have an account? <a href="/login">Login</a>
