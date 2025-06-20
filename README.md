@@ -1,7 +1,6 @@
-# ☕ Coffo Coffee Shop Web App
+# ☕ Coffee Shop Web App
 
-Coffo is a responsive and modern coffee shop website built with a custom HTML/CSS/JavaScript frontend, styled using Bootstrap, and powered by a Flask + SQLite backend. It includes an admin panel, contact form handling, and is ready for deployment.
-It's user friendly 
+Coffee Shop is a responsive and modern coffee shop website built with a custom HTML/CSS/JavaScript frontend, styled using Bootstrap, and powered by a Flask + SQLite backend. It includes an admin panel, contact form handling, and is ready for deployment.
 
 ---
 
@@ -34,11 +33,5 @@ It's user friendly
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/euphrazia/coffee-shop.git
-cd coffee-shop
-# Coffee_Shop1
-# Coffee_Shop1
-# CoffeeShop-1.1.0
-# CoffeeShop-1.1.0
-# CoffeeShop-1.1.0
-# CoffeeShop-1.1.0
+git clone https://github.com/euphrazia/fullstack.git
+cd fullstack
