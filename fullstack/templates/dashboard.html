@@ -1,0 +1,16 @@
+{% extends "index.html" %}
+{% block content %}
+<section class="contact section" id="contact">
+  <div class="container">
+    <h2 style="color: green">Login Suscess </h2>
+    <h2 style="color: green">Welcome, {{ session['username'] }}!</h2>
+    <ul class="list-group mt-3">
+      {% for msg in contacts %}
+      <li class="list-group-item">
+        <strong>{{ msg.name }}</strong> ({{ msg.email }})<br>{{ msg.message }}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endblock %}
